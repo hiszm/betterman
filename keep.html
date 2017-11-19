@@ -1,0 +1,205 @@
+<html>
+	<head>
+	
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<link rel="stylesheet" href="./css/bootstrap.min.css" >
+		<script type="text/javascript" src="./js/bootstrap.min.js" ></script>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		
+		
+		<script src="./js/highstock.js"></script>
+		<script src="./js/exporting.js"></script>
+		
+	
+	</head>
+	
+	
+	
+	<body>
+	
+	<div class="container">
+	
+	
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<ul class="nav nav-tabs">
+				<li >
+					 <a href="./index.html">首页</a>
+				</li>
+				<li class="active">
+					 <a href="./keep.html">总结</a>
+				</li>
+				<li>
+					 <a href="#">签到</a>
+				</li>
+				
+				 <!--
+				 
+				 <a href="#">签到</a>
+				 
+				 -->
+				 
+				 
+				 
+				<li class="dropdown pull-right">
+					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">更多<strong class="caret"></strong></a>
+					<ul class="dropdown-menu">
+					
+					
+					
+						<li>
+							 <a href="./login.html">登录</a>
+						</li>
+						
+						
+						<li>
+							 <a href="./info.html">我的中心</a>
+						</li>
+						
+						
+						<li>
+							 <a href="#">我的中心</a>
+						</li>
+							<li class="divider">
+							</li>
+						<li>
+							 <a href="#">关于本站</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			
+			
+			
+		</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</div>
+
+	<div id="container" style="height: 400px; min-width: 310px; ">
+	
+	</div>
+	
+
+<script type="text/javascript">
+
+<!--https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?-->
+$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {
+    // Create the chart
+    Highcharts.stockChart('container', {
+
+
+        rangeSelector: {
+            selected: 0,
+			buttons: [{//定义一组buttons,下标从0开始，可以根据你的需求，修改text的内容  
+  
+                    type: 'week',  
+  
+                    count: 1,  
+  
+                    text: '1周'  
+  
+                    },{  
+  
+                    type: 'month',  
+  
+                    count: 1,  
+  
+                    text: '1月'  
+  
+                    }, {  
+  
+                    type: 'month',  
+  
+                    count: 3,  
+  
+                    text: '3月'  
+  
+                    }, {  
+  
+                    type: 'month',  
+  
+                    count: 6,  
+  
+                    text: '6月'  
+  
+                    },  {  
+  
+                    type: 'year',  
+  
+                    count: 1,  
+  
+                    text: '1年'  
+  
+                    }, {  
+  
+                    type: 'all',  
+  
+                    text: '全部'  
+  
+                    }],  
+			
+        },
+
+        title: {
+            text: '早起时间'
+        },
+		
+		lang:{  
+
+                printChart: '打印图表',  
+  
+                downloadPNG: '下载JPEG 图片',  
+  
+                downloadJPEG: '下载JPEG文档',  
+  
+                downloadPDF: '下载PDF 图片',  
+  
+                downloadSVG: '下载SVG 矢量图',  
+  
+                contextButtonTitle: '下载图片'  
+  
+                },
+              
+
+			credits: {
+            	text: '',
+            	href: '#'
+        	},//去水印
+			
+        series: [{
+            name: '时间',
+            data: data,
+            tooltip: {
+                valueDecimals: 2
+            }
+        }]
+    });
+});
+
+
+		</script>
+		
+	</body>
+
+
+</html>
